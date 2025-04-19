@@ -5,14 +5,14 @@ plugins {
 }
 
 group = "com.github.mahditeymoorianar"
-version = "1.0.2" // This will match your GitHub tag later
+version = "1.0.5"
 
 publishing {
     publications {
         register<MavenPublication>("release") {
             groupId = "com.github.teymoorianar"
             artifactId = "anarfabbottombar"
-            version = "1.0.4"
+            version = "1.0.5"
 
             afterEvaluate {
                 from(components["release"])
