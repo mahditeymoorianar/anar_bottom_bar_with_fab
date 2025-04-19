@@ -153,6 +153,7 @@ class AnarBottomBarWithFab @JvmOverloads constructor(
                 val fabIconSize = getDimension(R.styleable.AnarBottomBarWithFab_fabIconSize, 120f)
                 val fabIcon = getDrawable(R.styleable.AnarBottomBarWithFab_fabIcon)
 
+
                 iconColorSelected = ColorStateList.valueOf(getColor(R.styleable.AnarBottomBarWithFab_iconColorSelected,Color.WHITE))
                 iconColorNotSelected = ColorStateList.valueOf(getColor(R.styleable.AnarBottomBarWithFab_iconColorNotSelected,  Color.GRAY))
                 Log.d("fab", "fabColor: $fabColorInt")
