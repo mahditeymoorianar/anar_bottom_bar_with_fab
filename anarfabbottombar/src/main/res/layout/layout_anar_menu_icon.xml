@@ -14,7 +14,7 @@
         android:layout_weight="1"
         android:scaleType="centerCrop"
         android:tint="@color/design_default_color_primary"
-        app:srcCompat="@drawable/ic_home_black_24dp" />
+        app:srcCompat="@drawable/round_add_24" />
 
     <TextView
         android:id="@+id/menuName"
