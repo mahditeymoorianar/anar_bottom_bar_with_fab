@@ -8,9 +8,6 @@
         android:id="@+id/bottomBar"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        app:fabColor="#673AB7"
-        app:iconColorNotSelected="#C7C7C7"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:myBgColor="#673AB7" />
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

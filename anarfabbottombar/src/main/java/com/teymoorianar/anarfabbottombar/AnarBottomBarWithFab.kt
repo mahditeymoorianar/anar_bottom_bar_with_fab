@@ -148,7 +148,7 @@ class AnarBottomBarWithFab @JvmOverloads constructor(
                 menuIconsContainerStart = findViewById(R.id.menuIconsStart)
                 menuIconsContainerEnd = findViewById(R.id.menuIconsEnd)
 
-                val bgColorInt = getColor(R.styleable.AnarBottomBarWithFab_myBgColor, Color.argb(255, 40, 80,60))
+                val bgColorInt = getColor(R.styleable.AnarBottomBarWithFab_myBgColor, Color.argb(255, 90, 24,152))
                 val fabColorInt = getColor(R.styleable.AnarBottomBarWithFab_fabColor, bgColorInt)
                 val fabIconSize = getDimension(R.styleable.AnarBottomBarWithFab_fabIconSize, 120f)
                 val fabIcon = getDrawable(R.styleable.AnarBottomBarWithFab_fabIcon)
