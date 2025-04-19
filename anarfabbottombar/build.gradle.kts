@@ -5,14 +5,14 @@ plugins {
 }
 
 group = "com.github.mahditeymoorianar"
-version = "1.0.7"
+version = "1.0.8"
 
 publishing {
     publications {
         register<MavenPublication>("release") {
             groupId = "com.github.teymoorianar"
             artifactId = "anarfabbottombar"
-            version = "1.0.7"
+            version = "1.0.8"
 
             afterEvaluate {
                 from(components["release"])
