@@ -1,10 +1,25 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    id("maven-publish")
 }
 
 group = "com.github.mahditeymoorianar"
-version = "1.0.1" // This will match your GitHub tag later
+version = "1.0.2" // This will match your GitHub tag later
+
+publishing {
+    publications {
+        register<MavenPublication>("release") {
+            groupId = "com.github.teymoorianar"
+            artifactId = "anar_bottom_bar_with_fab"
+            version = "1.0.2"
+
+            afterEvaluate {
+                from(components["release"])
+            }
+        }
+    }
+}
 
 android {
     namespace = "com.teymoorianar.anarfabbottombar"
