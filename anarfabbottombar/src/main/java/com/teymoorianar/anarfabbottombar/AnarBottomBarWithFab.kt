@@ -6,8 +6,11 @@ import android.graphics.Color
 import android.util.AttributeSet
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.TextView
+import androidx.constraintlayout.solver.state.Dimension
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -46,6 +49,9 @@ class AnarBottomBarWithFab @JvmOverloads constructor(
     private lateinit var fabColor: ColorStateList
     private lateinit var iconColorNotSelected: ColorStateList
     private lateinit var iconColorSelected: ColorStateList
+    private var activationBarThickness: Int = (context.resources.displayMetrics.density * 5).toInt()
+    private var showActivationBar: Boolean = true
+    private var showName: Boolean = true
     // menus
     private var menuItems: ArrayList<AnarMenuItem> = ArrayList()
 
@@ -109,6 +115,16 @@ class AnarBottomBarWithFab @JvmOverloads constructor(
                 setInfo(menuItem)
             }
             menuIcon.setLayoutParams(layoutParams)
+            val activationBar = menuIcon.findViewById<ImageView>(R.id.activationBar)
+            menuIcon.showActivationBar = showActivationBar
+            activationBar.layoutParams.height = activationBarThickness
+
+            val nameTextView: TextView = menuIcon.menuNameView
+            if (showName) {
+                nameTextView.visibility = VISIBLE
+            } else {
+                nameTextView.visibility = GONE
+            }
             allIcons.add(menuIcon)
             if (i <= (menuItems.size+1)/2) {
                 menuIconsContainerStart.addView(menuIcon)
@@ -152,7 +168,10 @@ class AnarBottomBarWithFab @JvmOverloads constructor(
                 val fabColorInt = getColor(R.styleable.AnarBottomBarWithFab_fabColor, bgColorInt)
                 val fabIconSize = getDimension(R.styleable.AnarBottomBarWithFab_fabIconSize, 120f)
                 val fabIcon = getDrawable(R.styleable.AnarBottomBarWithFab_fabIcon)
-
+                activationBarThickness = getDimension(R.styleable.AnarBottomBarWithFab_activationBarThickness,
+                    5f).toInt()
+                showActivationBar = getBoolean(R.styleable.AnarBottomBarWithFab_showActivationBar, true)
+                showName = getBoolean(R.styleable.AnarBottomBarWithFab_showName, true)
 
                 iconColorSelected = ColorStateList.valueOf(getColor(R.styleable.AnarBottomBarWithFab_iconColorSelected,Color.WHITE))
                 iconColorNotSelected = ColorStateList.valueOf(getColor(R.styleable.AnarBottomBarWithFab_iconColorNotSelected,  Color.GRAY))

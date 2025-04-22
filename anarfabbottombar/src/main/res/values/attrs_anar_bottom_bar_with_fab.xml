@@ -6,5 +6,8 @@
         <attr name="iconColorSelected" format="color" />
         <attr name="fabIconSize" format="dimension"/>
         <attr name="fabIcon" format="reference"/>
+        <attr name="activationBarThickness" format="dimension"/>
+        <attr name="showActivationBar" format="boolean"/>
+        <attr name="showName" format="boolean"/>
     </declare-styleable>
 </resources>

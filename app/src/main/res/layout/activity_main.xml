@@ -17,8 +17,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.teymoorianar.anarfabbottombar.AnarBottomBarWithFab
+        android:id="@+id/anarbottombar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:activationBarThickness="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:showActivationBar="true"
+        app:showName="false" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
