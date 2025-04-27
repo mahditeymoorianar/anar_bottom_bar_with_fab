@@ -25,6 +25,7 @@ class AnarMenuIcon @JvmOverloads constructor(
     var group: List<AnarMenuIcon> = ArrayList()
     var activeColor: ColorStateList = ColorStateList.valueOf(com.google.android.material.R.color.design_default_color_primary)
     var inactiveColor: ColorStateList= ColorStateList.valueOf(com.google.android.material.R.color.design_default_color_primary)
+    var showActivationBar: Boolean = true
 
     init {
         LayoutInflater.from(context).inflate(R.layout.layout_anar_menu_icon, this, true)
@@ -62,7 +63,7 @@ class AnarMenuIcon @JvmOverloads constructor(
             for (icon in group)
                 if (icon != this) icon.setActivation(false)
         }
-        menuActivationBar.visibility = if (beActive) VISIBLE else INVISIBLE
+        menuActivationBar.visibility = if (!showActivationBar) GONE else if (beActive) VISIBLE else INVISIBLE
         menuIconView.imageTintList = if (beActive) activeColor else inactiveColor
         menuNameView.setTextColor(if (beActive) activeColor else inactiveColor)
 
