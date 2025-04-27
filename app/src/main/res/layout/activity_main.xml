@@ -20,9 +20,10 @@
         android:id="@+id/anarbottombar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/amiri"
         app:activationBarThickness="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:showActivationBar="true"
-        app:showName="false" />
+        app:showName="true" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

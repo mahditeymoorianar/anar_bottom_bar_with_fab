@@ -9,5 +9,6 @@
         <attr name="activationBarThickness" format="dimension"/>
         <attr name="showActivationBar" format="boolean"/>
         <attr name="showName" format="boolean"/>
+        <attr name="android:fontFamily" format="reference"/>
     </declare-styleable>
 </resources>

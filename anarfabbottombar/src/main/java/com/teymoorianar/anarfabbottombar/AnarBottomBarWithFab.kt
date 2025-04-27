@@ -3,6 +3,7 @@ package com.teymoorianar.anarfabbottombar
 import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Color
+import android.graphics.Typeface
 import android.util.AttributeSet
 import android.util.Log
 import android.view.LayoutInflater
@@ -13,6 +14,7 @@ import android.widget.TextView
 import androidx.constraintlayout.solver.state.Dimension
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.teymoorianar.anarfabbottombar.AnarMenuIcon
 import com.teymoorianar.anarfabbottombar.AnarMenuItem
@@ -52,6 +54,7 @@ class AnarBottomBarWithFab @JvmOverloads constructor(
     private var activationBarThickness: Int = (context.resources.displayMetrics.density * 5).toInt()
     private var showActivationBar: Boolean = true
     private var showName: Boolean = true
+    private var fontFamily: Typeface? = null
     // menus
     private var menuItems: ArrayList<AnarMenuItem> = ArrayList()
 
@@ -125,6 +128,7 @@ class AnarBottomBarWithFab @JvmOverloads constructor(
             } else {
                 nameTextView.visibility = GONE
             }
+            menuIcon.menuNameView.setTypeface(fontFamily)
             allIcons.add(menuIcon)
             if (i <= (menuItems.size+1)/2) {
                 menuIconsContainerStart.addView(menuIcon)
@@ -172,6 +176,21 @@ class AnarBottomBarWithFab @JvmOverloads constructor(
                     5f).toInt()
                 showActivationBar = getBoolean(R.styleable.AnarBottomBarWithFab_showActivationBar, true)
                 showName = getBoolean(R.styleable.AnarBottomBarWithFab_showName, true)
+
+                val typedArray = context.obtainStyledAttributes(attrs, intArrayOf(android.R.attr.fontFamily))
+                try {
+                    val fontFamilyResourceId = typedArray.getResourceId(0, 0)
+                    if (fontFamilyResourceId != 0) {
+                        fontFamily = ResourcesCompat.getFont(context, fontFamilyResourceId)
+                    } else {
+                        val fontFamilyName = typedArray.getString(0)
+                        if (fontFamilyName != null) {
+                            fontFamily = Typeface.create(fontFamilyName, Typeface.NORMAL)
+                        }
+                    }
+                } finally {
+                    typedArray.recycle()
+                }
 
                 iconColorSelected = ColorStateList.valueOf(getColor(R.styleable.AnarBottomBarWithFab_iconColorSelected,Color.WHITE))
                 iconColorNotSelected = ColorStateList.valueOf(getColor(R.styleable.AnarBottomBarWithFab_iconColorNotSelected,  Color.GRAY))
